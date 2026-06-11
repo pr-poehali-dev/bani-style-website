@@ -356,6 +356,132 @@ export default function Index() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section id="reviews" className="py-24 lg:py-36 bg-[hsl(20,10%,8%)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <span className="section-label">Отзывы</span>
+            <div className="divider-gold my-4" />
+            <h2 className="font-display text-5xl lg:text-6xl font-light text-[hsl(40,20%,95%)]">
+              Говорят <em>гости</em>
+            </h2>
+          </div>
+
+          {/* Platform badges */}
+          <div className="flex flex-wrap justify-center gap-6 mb-14">
+            {/* Яндекс */}
+            <a href="#" className="flex items-center gap-3 bg-[hsl(20,10%,10%)] border border-[hsl(30,15%,16%)] hover:border-[hsl(43,65%,62%)] transition-colors px-5 py-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.8 2H10.5C7.46 2 5 4.46 5 7.5c0 2.36 1.38 4.4 3.38 5.38L5.1 22h3.12l3.1-8.7h1.1V22H15.5V2h-1.7zm0 8.8h-1.18L10.5 4h3.3v6.8z" fill="#FC3F1D"/>
+              </svg>
+              <div>
+                <div className="flex items-center gap-1">
+                  {[1,2,3,4,5].map(s => <span key={s} className="text-[hsl(43,65%,62%)] text-xs">★</span>)}
+                </div>
+                <div className="text-[hsl(40,15%,45%)] text-[0.65rem] tracking-wide mt-0.5">4.9 · Яндекс Карты</div>
+              </div>
+            </a>
+            {/* 2GIS */}
+            <a href="#" className="flex items-center gap-3 bg-[hsl(20,10%,10%)] border border-[hsl(30,15%,16%)] hover:border-[hsl(43,65%,62%)] transition-colors px-5 py-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#00B140"/>
+                <text x="12" y="16" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="Arial">2GIS</text>
+              </svg>
+              <div>
+                <div className="flex items-center gap-1">
+                  {[1,2,3,4,5].map(s => <span key={s} className="text-[hsl(43,65%,62%)] text-xs">★</span>)}
+                </div>
+                <div className="text-[hsl(40,15%,45%)] text-[0.65rem] tracking-wide mt-0.5">4.8 · 2GIS</div>
+              </div>
+            </a>
+          </div>
+
+          {/* Reviews grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                name: "Алина К.",
+                date: "март 2024",
+                rating: 5,
+                text: "Невероятная атмосфера. Пришла впервые и сразу влюбилась — персонал внимательный, баня настоящая, с паром и вениками. Массаж на высшем уровне. Теперь хожу каждые две недели.",
+                source: "yandex",
+              },
+              {
+                name: "Дмитрий В.",
+                date: "февраль 2024",
+                rating: 5,
+                text: "Брали VIP-кабину на двоих с женой на годовщину — остались в полном восторге. Ужин, банщик, ритуал с маслами. Ощущение, что побывали в другом измерении. Рекомендую всем.",
+                source: "2gis",
+              },
+              {
+                name: "Марина С.",
+                date: "январь 2024",
+                rating: 5,
+                text: "Хамам здесь — лучший в Москве, это без преувеличений. Мрамор настоящий, тепло равномерное, мыльный массаж делают профессионально. Бассейн после процедур — отдельное удовольствие.",
+                source: "yandex",
+              },
+              {
+                name: "Сергей Л.",
+                date: "декабрь 2023",
+                rating: 5,
+                text: "Давно искал место, где можно нормально попариться в центре. Тут всё есть: хороший пар, холодный бассейн, зона отдыха. Обслуживание без единого замечания. Приеду снова.",
+                source: "2gis",
+              },
+              {
+                name: "Ольга П.",
+                date: "ноябрь 2023",
+                rating: 5,
+                text: "Подарила мужу сертификат на Премиум — он был в восторге. Говорит, что это лучший подарок за несколько лет. Теперь ходим вместе раз в месяц. Спасибо за качество!",
+                source: "yandex",
+              },
+              {
+                name: "Антон М.",
+                date: "октябрь 2023",
+                rating: 5,
+                text: "Приятно удивлён сервисом. Небольшое количество гостей создаёт ощущение частного клуба. Не как в общественной бане — тихо, уютно, можно реально расслабиться.",
+                source: "2gis",
+              },
+            ].map((review, i) => (
+              <div key={i} className="bg-[hsl(20,10%,9%)] border border-[hsl(30,15%,13%)] p-6 relative">
+                {/* Source icon */}
+                <div className="absolute top-5 right-5">
+                  {review.source === "yandex" ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-50">
+                      <path d="M13.8 2H10.5C7.46 2 5 4.46 5 7.5c0 2.36 1.38 4.4 3.38 5.38L5.1 22h3.12l3.1-8.7h1.1V22H15.5V2h-1.7zm0 8.8h-1.18L10.5 4h3.3v6.8z" fill="#FC3F1D"/>
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-50">
+                      <circle cx="12" cy="12" r="10" fill="#00B140"/>
+                      <text x="12" y="16" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold" fontFamily="Arial">2G</text>
+                    </svg>
+                  )}
+                </div>
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: review.rating }).map((_, s) => (
+                    <span key={s} className="text-[hsl(43,65%,62%)] text-sm">★</span>
+                  ))}
+                </div>
+                {/* Text */}
+                <p className="text-[hsl(40,15%,58%)] text-xs leading-relaxed font-light mb-5">
+                  {review.text}
+                </p>
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-4 border-t border-[hsl(30,15%,12%)]">
+                  <div className="w-7 h-7 bg-[hsl(30,15%,16%)] flex items-center justify-center text-[hsl(43,65%,62%)] font-display text-sm">
+                    {review.name[0]}
+                  </div>
+                  <div>
+                    <div className="text-xs text-[hsl(40,20%,80%)] font-medium">{review.name}</div>
+                    <div className="text-[0.65rem] text-[hsl(40,15%,38%)]">{review.date}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* BOOKING */}
       <section id="booking" className="py-24 lg:py-36 bg-[hsl(20,10%,8%)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
