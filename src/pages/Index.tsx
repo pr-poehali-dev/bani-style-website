@@ -370,7 +370,7 @@ export default function Index() {
           {/* Platform badges */}
           <div className="flex flex-wrap justify-center gap-6 mb-14">
             {/* Яндекс */}
-            <a href="#" className="flex items-center gap-3 bg-[hsl(20,10%,10%)] border border-[hsl(30,15%,16%)] hover:border-[hsl(43,65%,62%)] transition-colors px-5 py-3">
+            <a href="https://yandex.ru/profile/1101315474?" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-[hsl(20,10%,10%)] border border-[hsl(30,15%,16%)] hover:border-[hsl(43,65%,62%)] transition-colors px-5 py-3">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.8 2H10.5C7.46 2 5 4.46 5 7.5c0 2.36 1.38 4.4 3.38 5.38L5.1 22h3.12l3.1-8.7h1.1V22H15.5V2h-1.7zm0 8.8h-1.18L10.5 4h3.3v6.8z" fill="#FC3F1D"/>
               </svg>
