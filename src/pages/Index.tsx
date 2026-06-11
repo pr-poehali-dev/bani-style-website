@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/91bcae67-c8e3-4fde-bd36-5f91aece798d/files/1ce35f38-a84e-463c-a433-7d07cff676cd.jpg";
@@ -79,6 +80,7 @@ const stats = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [booking, setBooking] = useState({
     name: "",
@@ -127,6 +129,9 @@ export default function Index() {
                 {item.label}
               </button>
             ))}
+            <button onClick={() => navigate("/halls")} className="nav-link">
+              Залы
+            </button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -157,6 +162,9 @@ export default function Index() {
                 {item.label}
               </button>
             ))}
+            <button onClick={() => navigate("/halls")} className="nav-link text-left text-sm">
+              Залы
+            </button>
           </div>
         )}
       </nav>
