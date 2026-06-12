@@ -8,8 +8,10 @@ interface HallData {
   desc: string;
   images: string[];
   capacity: string;
-  area: string;
+  area?: string;
   price: string;
+  priceOld?: string;
+  priceNote?: string;
   features: string[];
   slug: string;
 }
@@ -128,10 +130,19 @@ export default function HallPage({ hall }: HallPageProps) {
             {/* Price card */}
             <div className="bg-[hsl(20,10%,9%)] border border-[hsl(30,15%,14%)] p-7">
               <p className="section-label mb-3">Стоимость</p>
+              {hall.priceOld && (
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-[hsl(40,15%,35%)] text-sm line-through">{hall.priceOld} ₽</span>
+                  <span className="text-[hsl(43,65%,62%)] text-[0.65rem] tracking-widest uppercase bg-[hsl(43,65%,62%)]/10 px-2 py-0.5">акция</span>
+                </div>
+              )}
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="font-display text-4xl text-[hsl(43,65%,62%)] font-light">{hall.price}</span>
                 <span className="text-[hsl(40,15%,40%)] text-xs">₽ / час</span>
               </div>
+              {hall.priceNote && (
+                <p className="text-[hsl(40,15%,35%)] text-[0.65rem] mt-1">{hall.priceNote}</p>
+              )}
               <button
                 onClick={() => navigate("/#booking")}
                 className="btn-gold w-full text-center mt-5 block"
@@ -146,7 +157,7 @@ export default function HallPage({ hall }: HallPageProps) {
               <div className="space-y-4">
                 {[
                   { icon: "Users", label: "Вместимость", val: hall.capacity },
-                  { icon: "Maximize2", label: "Площадь", val: hall.area },
+                  ...(hall.area ? [{ icon: "Maximize2", label: "Площадь", val: hall.area }] : []),
                 ].map((s, i) => (
                   <div key={i} className="flex items-center justify-between border-b border-[hsl(30,15%,12%)] pb-4 last:border-0 last:pb-0">
                     <div className="flex items-center gap-2">
