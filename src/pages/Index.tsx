@@ -364,6 +364,45 @@ export default function Index() {
         </div>
       </section>
 
+      {/* FORMATS */}
+      <section className="py-24 lg:py-36 bg-[hsl(20,10%,8%)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <span className="section-label">Для любого повода</span>
+            <div className="divider-gold my-4" />
+            <h2 className="font-display text-5xl lg:text-6xl font-light text-[hsl(40,20%,95%)]">
+              Форматы <em>отдыха</em>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: "Cake", title: "День рождения в сауне", desc: "Отмечайте особый день в кругу близких — камерная атмосфера, пар и праздничный стол." },
+              { icon: "Music2", title: "Сауна с караоке", desc: "Пойте любимые песни, расслабляйтесь в паре и заряжайтесь позитивом до утра." },
+              { icon: "Waves", title: "Сауна с джакузи", desc: "Сочетание горячего пара и гидромассажных пузырьков — идеальное восстановление тела." },
+              { icon: "Sparkles", title: "Девичник в сауне", desc: "Стильный вечер с подружками: баня, уход за собой и незабываемые воспоминания." },
+              { icon: "Beer", title: "Сауна для мальчишника", desc: "Последняя вольная ночь в лучшем виде — пар, компания и полный комфорт." },
+              { icon: "Hand", title: "Расслабляющий массаж", desc: "Профессиональный массаж после бани снимет напряжение и наполнит тело лёгкостью." },
+            ].map((format, i) => (
+              <div
+                key={i}
+                className="group bg-[hsl(20,10%,6%)] border border-[hsl(30,15%,13%)] hover:border-[hsl(43,65%,62%)]/40 p-8 transition-colors duration-300"
+              >
+                <div className="w-10 h-10 border border-[hsl(43,65%,62%)]/30 group-hover:border-[hsl(43,65%,62%)] flex items-center justify-center mb-6 transition-colors duration-300">
+                  <Icon name={format.icon} fallback="Star" size={16} className="text-[hsl(43,65%,62%)]" />
+                </div>
+                <h3 className="font-display text-xl font-light text-[hsl(40,20%,92%)] mb-3">{format.title}</h3>
+                <p className="text-[hsl(40,15%,45%)] text-xs leading-relaxed">{format.desc}</p>
+                <div className="mt-6 flex items-center gap-2 text-[hsl(43,65%,62%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })} className="text-[0.65rem] tracking-widest uppercase">Забронировать</button>
+                  <Icon name="ArrowRight" size={10} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* REVIEWS */}
       <section id="reviews" className="py-24 lg:py-36 bg-[hsl(20,10%,8%)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
