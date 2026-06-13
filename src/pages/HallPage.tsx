@@ -195,6 +195,42 @@ export default function HallPage({ hall }: HallPageProps) {
           </div>
         </div>
 
+        {/* FORMATS */}
+        <div className="mt-20 pt-16 border-t border-[hsl(30,15%,12%)]">
+          <div className="text-center mb-12">
+            <span className="section-label">Для любого повода</span>
+            <div className="divider-gold my-4" />
+            <h2 className="font-display text-4xl lg:text-5xl font-light text-[hsl(40,20%,95%)]">
+              Форматы <em>отдыха</em>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: "Cake", title: "День рождения в сауне", desc: "Отмечайте особый день в кругу близких — камерная атмосфера, пар и праздничный стол." },
+              { icon: "Music2", title: "Сауна с караоке", desc: "Пойте любимые песни, расслабляйтесь и заряжайтесь позитивом до утра." },
+              { icon: "Waves", title: "Сауна с джакузи", desc: "Горячий пар и гидромассажные пузырьки — идеальное восстановление тела." },
+              { icon: "Sparkles", title: "Девичник в сауне", desc: "Стильный вечер с подружками: баня, уход за собой и незабываемые воспоминания." },
+              { icon: "Beer", title: "Сауна для мальчишника", desc: "Последняя вольная ночь в лучшем виде — пар, компания и полный комфорт." },
+              { icon: "Hand", title: "Расслабляющий массаж", desc: "Профессиональный массаж после бани снимет напряжение и наполнит тело лёгкостью." },
+            ].map((format, i) => (
+              <div
+                key={i}
+                className="group bg-[hsl(20,10%,9%)] border border-[hsl(30,15%,13%)] hover:border-[hsl(43,65%,62%)]/40 p-7 transition-colors duration-300"
+              >
+                <div className="w-9 h-9 border border-[hsl(43,65%,62%)]/30 group-hover:border-[hsl(43,65%,62%)] flex items-center justify-center mb-5 transition-colors duration-300">
+                  <Icon name={format.icon} fallback="Star" size={15} className="text-[hsl(43,65%,62%)]" />
+                </div>
+                <h3 className="font-display text-lg font-light text-[hsl(40,20%,92%)] mb-2">{format.title}</h3>
+                <p className="text-[hsl(40,15%,45%)] text-xs leading-relaxed">{format.desc}</p>
+                <div className="mt-5 flex items-center gap-2 text-[hsl(43,65%,62%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button onClick={() => navigate("/#booking")} className="text-[0.65rem] tracking-widest uppercase">Забронировать</button>
+                  <Icon name="ArrowRight" size={10} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Other halls */}
         <div className="mt-20 pt-12 border-t border-[hsl(30,15%,12%)]">
           <p className="section-label mb-8">Другие залы</p>
