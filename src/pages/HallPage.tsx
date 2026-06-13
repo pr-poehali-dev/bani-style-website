@@ -214,7 +214,7 @@ export default function HallPage({ hall }: HallPageProps) {
               { icon: "Hand", title: "Расслабляющий массаж", desc: "Профессиональный массаж после бани снимет напряжение и наполнит тело лёгкостью." },
               { icon: "Heart", title: "Идеальное свидание для двоих", desc: "Романтический вечер в уединённом зале — пар, тишина и атмосфера только для вас двоих." },
               { icon: "Briefcase", title: "Корпоративный отдых", desc: "Сплотите команду в неформальной обстановке — баня объединяет лучше любого тимбилдинга." },
-              { icon: "Gift", title: "Подарок близкому", desc: "Подарите незабываемые впечатления — сертификат на посещение нашего клуба." },
+              { icon: "Gift", title: "Подарок близкому", desc: "Подарите незабываемые впечатления — сертификат на посещение нашего клуба.", link: "/gifts" },
             ].map((format, i) => (
               <div
                 key={i}
@@ -226,7 +226,11 @@ export default function HallPage({ hall }: HallPageProps) {
                 <h3 className="font-display text-lg font-light text-[hsl(40,20%,92%)] mb-2">{format.title}</h3>
                 <p className="text-[hsl(40,15%,45%)] text-xs leading-relaxed">{format.desc}</p>
                 <div className="mt-5 flex items-center gap-2 text-[hsl(43,65%,62%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button onClick={() => navigate("/#booking")} className="text-[0.65rem] tracking-widest uppercase">Забронировать</button>
+                  {"link" in format && format.link ? (
+                    <button onClick={() => navigate(format.link!)} className="text-[0.65rem] tracking-widest uppercase">Выбрать сертификат</button>
+                  ) : (
+                    <button onClick={() => navigate("/#booking")} className="text-[0.65rem] tracking-widest uppercase">Забронировать</button>
+                  )}
                   <Icon name="ArrowRight" size={10} />
                 </div>
               </div>

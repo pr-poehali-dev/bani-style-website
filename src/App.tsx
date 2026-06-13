@@ -12,6 +12,7 @@ import Cave from "./pages/halls/Cave";
 import Airship from "./pages/halls/Airship";
 import Ship from "./pages/halls/Ship";
 import Grotto from "./pages/halls/Grotto";
+import Gifts from "./pages/Gifts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/halls/airship" element={<Airship />} />
           <Route path="/halls/ship" element={<Ship />} />
           <Route path="/halls/grotto" element={<Grotto />} />
+          <Route path="/gifts" element={<Gifts />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
